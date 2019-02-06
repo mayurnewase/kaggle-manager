@@ -1,0 +1,27 @@
+Tasks:
+
+	take kernel or hook exixting kernel
+	submit
+	notify completion
+	collect output
+	collect meta output
+	store result
+
+Stalker:
+	
+	Follow competition
+		Notify new kernel,discussion
+	Get user activity from heatmap
+
+
+
+
+
+
+
+
+
+
+
+
+
