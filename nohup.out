@@ -1,0 +1,89 @@
+Traceback (most recent call last):
+  File "/home/mayur/anaconda3/bin/kaggle", line 11, in <module>
+    sys.exit(main())
+  File "/home/mayur/anaconda3/lib/python3.5/site-packages/kaggle/cli.py", line 50, in main
+    out = args.func(**command_args)
+  File "/home/mayur/anaconda3/lib/python3.5/site-packages/kaggle/api/kaggle_api_extended.py", line 2050, in kernels_output_cli
+    self.kernels_output(kernel, path, force, quiet)
+  File "/home/mayur/anaconda3/lib/python3.5/site-packages/kaggle/api/kaggle_api_extended.py", line 2021, in kernels_output
+    with open(outfile, 'wb') as out:
+FileNotFoundError: [Errno 2] No such file or directory: 'result/results/lstm_no_feats.csv'
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "running"
+
+Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/mayur/.kaggle/kaggle.json'
+mayurnewase/simple-lstm has status "complete"
+
+sms sent successfully with id SM00089aa1f14145c7b1db09428c570d10
+Fetching output from kaggle...
+Done...

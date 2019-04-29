@@ -6,6 +6,7 @@ Tasks:
 	collect output
 	collect meta output
 	store result
+	custom post process on meta data
 
 Stalker:
 	

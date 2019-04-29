@@ -4,16 +4,15 @@ import time
 
 
 class Submit():
-	def __init__(self, path, message, competition):
+	def __init__(self, path, competition):
 		self.path = path
-		self.message = message
 		self.competition = competition
 
 	def submit_to_competition(self):
-		res = os.popen("kaggle competitions submit" + " -f " + self.path +  " -m hey " + self.competition)
+		res = os.popen("kaggle competitions submit" + " -f " + self.path + self.competition)
 	
 	def upload(self):
-		res = os.popen("kaggle kernel upload")
+		res = os.popen("kaggle kernel push -p " + self.path)
 
 class CheckStatus():
 	def __init__(self,user_name ,kernel_name, frequency):
@@ -34,11 +33,9 @@ class CheckStatus():
 				print(res)
 				status = res.split(" ")[-1].strip("\n")
 				if((status == "\"complete\"") or (status == "cancel.\"")):
-					print("exiting")
-					return
+					return 0
 				print(res)
 				time.sleep(self.frequency)
-
 
 class GetOutput():
 	def __init__(self, user_name, kernel_name, dire):
@@ -47,9 +44,20 @@ class GetOutput():
 		self.dir = dire
 
 	def getOutput(self):
+		print("Fetching output from kaggle...")
+		if not os.path.isdir(self.dir):
+			os.mkdir(self.dir)
 		os.popen('kaggle kernels output ' + self.user_name + "/" + self.kernel_name + " --path " + self.dir).read()
+		print("Done...")
 
+class PostProcessor():
+	def __init__(self, user_name, kernel_name, result_dir):
+		self.user_name = user_name
+		self.kernel_name = kernel_name
+		self.result_dir = result_dir
 
+	def postProcess():
+			
 
 
 
