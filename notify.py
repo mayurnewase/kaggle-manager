@@ -18,7 +18,7 @@ class Notify():
 
 	def notifyMessage(self):
 		client = Client(self.account_sid, self.auth_token)
-
+		print("sending message")
 		try:
 			message = client.messages \
 			                .create(
@@ -32,12 +32,20 @@ class Notify():
 		print("sms sent successfully with id "+message.sid)
 
 	def notifyDesktop(self):
+		print("notifying desktop")
 		if(os.name == "posix"):
-			os.popen("notify-send {self.kernel_name} {self.notify_message}")
+			print("linux notti ", self.kernel_name, self.notify_message)
+			os.popen("notify-send " + str(self.kernel_name) + " " + str(self.notify_message))
+
 		elif(os.name == "nt"):
-			from win10toast import ToastNotifier
+			try:
+				from win10toast import ToastNotifier
+			except:
+				print("win10toast need to be installed for windows notifications")
+				return
+
 			toaster = ToastNotifier()
-			toaster.show_toast("{self.kernel_name}","{self.notify_message}")
+			toaster.show_toast("{}".format(self.kernel_name),"{}".format(self.notify_message))
 		else:
 			print("Only linux and windows notifications are supported")
 

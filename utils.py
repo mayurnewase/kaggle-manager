@@ -1,7 +1,9 @@
 import argparse
 import os
 import time
-
+import shutil
+import csv
+import pandas as pd
 
 class Submit():
 	def __init__(self, path, competition):
@@ -38,28 +40,59 @@ class CheckStatus():
 				time.sleep(self.frequency)
 
 class GetOutput():
-	def __init__(self, user_name, kernel_name, dire):
-		self.user_name = user_name
-		self.kernel_name = kernel_name
-		self.dir = dire
-
-	def getOutput(self):
-		print("Fetching output from kaggle...")
-		if not os.path.isdir(self.dir):
-			os.mkdir(self.dir)
-		os.popen('kaggle kernels output ' + self.user_name + "/" + self.kernel_name + " --path " + self.dir).read()
-		print("Done...")
-
-class PostProcessor():
 	def __init__(self, user_name, kernel_name, result_dir):
 		self.user_name = user_name
 		self.kernel_name = kernel_name
 		self.result_dir = result_dir
+		self.temp_dir = "temp/"
 
-	def postProcess():
-			
+		try:
+			os.mkdir(self.temp_dir)
+		except FileExistsError:
+			shutil.rmtree("temp/")
+		try:
+			os.mkdir(self.result_dir)
+		except FileExistsError:
+			pass
 
+	def getOutput(self):
+		print("Fetching output from kaggle...")
 
+		try:
+			os.popen('kaggle kernels output ' + self.user_name + "/" + self.kernel_name + " --path " + self.temp_dir).read()
+		except FileNotFoundError:
+			print("Saving output failed because kaggle kernel stored output in subdirectory,so we are not able to download it.Please store outputs in current working directory only.")
+			return None
+
+		self.result_files = os.listdir(self.temp_dir)
+
+		for file in self.result_files:
+			shutil.move(self.temp_dir + "/" + file, self.result_dir + file)
+
+		print("Done...")
+		return self.result_files
+
+def preProcessor():
+	pass
+
+def postProcessor(user_name, kernel_name, master_log, result_path, all_result_files, result_file):
+	
+	"""
+	append result csv file to master csv file
+	"""
+	if all_result_files is not None and result_file is not None:
+		data = pd.read_csv(result_path + result_file)
+		print("post processing result")
+		
+		master = pd.read_csv(master_log)
+		master = pd.concat([master, data], axis = 0)
+		master.to_csv("master_log.csv")
+
+		"""with open(master_log, "a") as f:
+									f.write(data)"""
+		"""with open(master_log, 'a') as f:
+								    writer = csv.writer(f)
+								    writer.writerow(data)"""
 
 
 

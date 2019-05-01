@@ -9,22 +9,26 @@ from notify import *
 def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument("--local_or_remote", type = str, default = "local")
-	parser.add_argument("--competition_or_upload", type = str, default = "upload")
+	parser.add_argument("--competition_or_upload", type = str, default = "upload") #optional -> only if submit/upload
 
 	parser.add_argument("--user_name", type = str)
 	parser.add_argument("--kernel_name", type = str, default = None)
 	
-	parser.add_argument("--competition_name", type = str, default = None)
+	parser.add_argument("--competition_name", type = str, default = None)  #optional ->only if to submit
 
 	parser.add_argument("--frequency", type = int, default = None)
 
-	parser.add_argument("--notify", type = str, default = None)
-	parser.add_argument("--notify_message", type = str, default = "kernel run finished")
+	parser.add_argument("--notify", type = str, default = None) #msg/desktop/tone
+	parser.add_argument("--notify_message", type = str, default = "kernel_run_finished")
 	parser.add_argument("--tone_path", type = str, default = None)
 
-	parser.add_argument("--result_dir", type = str, default = None)
+	parser.add_argument("--result_dir", type = str, default = None) #optional -> to save resukt
+	parser.add_argument("--master_log", type = str, default = None) #optional
+	parser.add_argument("--result_to_append", type = str, default = None)#optional -> to append in master callback
 
 	args = parser.parse_args()
+
+	preProcessor()
 
 	if(args.local_or_remote == "local"):
 		s = Submit(args.kernel_name, args.competition_name)
@@ -43,18 +47,18 @@ def main():
 
 	elif(args.notify == "desktop"):
 		notify = Notify(args.kernel_name, args.notify_message)
-		notify.notifyLinux()
+		notify.notifyDesktop()
 	
 	elif(args.notify == "tone"):
 		notify = Notify(args.kernel_name, args.tone_path)
 		notify.notifyTone()
 
+	all_result_files = None
 	if(args.result_dir is not None):
 		go = GetOutput(args.user_name, args.kernel_name, args.result_dir)
-		go.getOutput()
+		all_result_files = go.getOutput()
 
-	po = PostProcessor(args.user_name, args.kernel_name, args.result_dir):
-	po = postProcess()
+	postProcessor(args.user_name, args.kernel_name, args.master_log, args.result_dir, all_result_files, args.result_to_append)
 
 if __name__ == "__main__":
 	main()
