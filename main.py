@@ -23,7 +23,7 @@ def main():
 	parser.add_argument("--tone_path", type = str, default = None)
 
 	parser.add_argument("--result_dir", type = str, default = None) #optional -> to save resukt
-	parser.add_argument("--master_log", type = str, default = None) #optional
+	parser.add_argument("--master_path", type = str, default = None) #optional
 	parser.add_argument("--result_to_append", type = str, default = None)#optional -> to append in master callback
 
 	args = parser.parse_args()
@@ -41,6 +41,30 @@ def main():
 	gs = CheckStatus(args.user_name, args.kernel_name, args.frequency)
 	res = gs.getStatus()
 
+	if res == 1:
+		print("Kernel run failed")
+		
+		if(args.notify == "msg"):
+			notify = Notify(args.kernel_name, "Failed_with_error")
+			notify.notifyMessage()
+
+		elif(args.notify == "desktop"):
+			notify = Notify(args.kernel_name, "Failed_with_error")
+			notify.notifyDesktop()
+		
+		elif(args.notify == "tone"):
+			notify = Notify(kernel_name = args.kernel_name, tone_path = args.tone_path)
+			notify.notifyTone()		
+
+		return 1
+
+	all_result_files = None
+	if(args.result_dir is not None):
+		go = GetOutput(args.user_name, args.kernel_name, args.result_dir)
+		all_result_files = go.getOutput()
+
+	postProcessor(args.user_name, args.kernel_name, args.master_path, args.result_dir, all_result_files, args.result_to_append)
+
 	if(args.notify == "msg"):
 		notify = Notify(args.kernel_name, args.notify_message)
 		notify.notifyMessage()
@@ -50,15 +74,12 @@ def main():
 		notify.notifyDesktop()
 	
 	elif(args.notify == "tone"):
-		notify = Notify(args.kernel_name, args.tone_path)
+		notify = Notify(kernel_name = args.kernel_name, tone_path = args.tone_path)
 		notify.notifyTone()
 
-	all_result_files = None
-	if(args.result_dir is not None):
-		go = GetOutput(args.user_name, args.kernel_name, args.result_dir)
-		all_result_files = go.getOutput()
 
-	postProcessor(args.user_name, args.kernel_name, args.master_log, args.result_dir, all_result_files, args.result_to_append)
+
+
 
 if __name__ == "__main__":
 	main()

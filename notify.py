@@ -28,6 +28,7 @@ class Notify():
 			                 )
 		except:
 			print("Error occured while sending twillio message")
+			return
 
 		print("sms sent successfully with id "+message.sid)
 
@@ -50,7 +51,8 @@ class Notify():
 			print("Only linux and windows notifications are supported")
 
 	def notifyTone(self):
-		os.system("ffplay {self.tone_path} -nodisp")
+		print(self.tone_path)
+		os.system("ffplay " + self.tone_path + " -nodisp") 
 
 
 #to='+917020846176'

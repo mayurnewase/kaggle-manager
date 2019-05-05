@@ -1,0 +1,1 @@
+python ../../kaggle-manager/main.py --local_or_remote=remote --user_name=mayurnewase --kernel_name=lstm-no-feats-fast --result_dir=./results/ --master_path=results/ --result_to_append=lstm-no-feats-fast.csv --frequency=10 --notify=msg
