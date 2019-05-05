@@ -86,7 +86,7 @@ master_log -> [optional] Single file to store all results across all kernels
 
 ***Please note that this code is not yet tested,and was created to solve my own problems***
 
-***I am not able to spend time on this so I need a team to test functionalities and add more features.Please drop a mail for any queries***
+***I am not able to spend time on this so I need a team to test functionalities and add more features.Please drop a mail for any support***
 
 ***feedbacks and suggestions always welcome,if facing an issue please raise it***
 
